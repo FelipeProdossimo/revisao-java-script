@@ -1,10 +1,41 @@
-const valorCotacaoDolar = 5.3;
-let valorEmDolarTexto = prompt("Quantos dólares você tem para converter?");
+function Converter(){
+    const valorCotacaoDolar = 5.3;
 
-let valorEmDolarNumero = parseFloat (valorEmDolarTexto);
+    let valorEmDolar = document.querySelector("#valorEmDolar").value;
 
-let valorEmReal = valorEmDolarNumero * valorCotacaoDolar;
+    //let valorEmDolarNumero = parseFloat (valorEmDolarTexto);
 
-let valorEmRealFixado = valorEmReal.toFixed(2);
+    let valorEmReal = (valorEmDolar * valorCotacaoDolar).toFixed(2);
 
-alert("O valor que você tem em dólares convertido para real é: R$" + valorEmRealFixado);
+    //let valorEmRealFixado = valorEmReal.toFixed(2);
+
+    document.querySelector("#valorEmReal").value = valorEmReal;
+}
+
+
+
+
+
+//Executar a função após carregar a página.
+//window.onload = function(){
+//    Converter();
+
+/* 
+Executar a fumção ao clicar no botão:
+Estamos atribuindo a função converter ao evento click do botão
+btConverter.
+Esse botão foi pego do html através do document.getElementById
+
+let botao = document.getElementById
+("btConverter");
+
+botao.onclick = function(){
+    Converter();
+}
+*/
+
+let botao = document.querySelector("#btConverter");
+
+botao.onclick = function(){
+    Converter();
+}
