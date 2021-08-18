@@ -1,15 +1,20 @@
-function Converter(){
-    const valorCotacaoDolar = 5.3;
+function Converter() {
 
-    let valorEmDolar = document.querySelector("#valorEmDolar").value;
+    const url = "https://economia.awesomeapi.com.br/json/last/USD-BRL";
+    $.getJSON(url, function (dados) {
 
-    //let valorEmDolarNumero = parseFloat (valorEmDolarTexto);
+        const valorCotacaoDolar = dados.USDBRL.low;
 
-    let valorEmReal = (valorEmDolar * valorCotacaoDolar).toFixed(2);
+        let valorEmDolar = document.querySelector("#valorEmDolar").value;
 
-    //let valorEmRealFixado = valorEmReal.toFixed(2);
+        //let valorEmDolarNumero = parseFloat (valorEmDolarTexto);
 
-    document.querySelector("#valorEmReal").value = valorEmReal;
+        let valorEmReal = (valorEmDolar * valorCotacaoDolar).toFixed(2);
+
+        //let valorEmRealFixado = valorEmReal.toFixed(2);
+
+        document.querySelector("#valorEmReal").value = valorEmReal;
+    });
 }
 
 
@@ -36,6 +41,6 @@ botao.onclick = function(){
 
 let botao = document.querySelector("#btConverter");
 
-botao.onclick = function(){
+botao.onclick = function () {
     Converter();
 }
