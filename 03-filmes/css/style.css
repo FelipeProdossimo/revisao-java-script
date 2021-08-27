@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&display=swap');
-
-body{
+body {
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     color: white;
@@ -8,54 +7,71 @@ body{
     background-image: url("../img/fundo.png");
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
-body{
-    background:
-           /* top, transparent black, faked with gradient */ 
-           linear-gradient(
-             rgba(0, 0, 0, 0.6), 
-             rgba(0, 0, 0, 0.6)
-           ),
-           /* bottom, image */
-           url("../img/fundo.png");
-       }
+body {
+    background: /* top, transparent black, faked with gradient */
+    linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* bottom, image */
+    url("../img/fundo.png");
+}
 
-h1{
+h1 {
     font-family: 'Indie Flower';
-    font-size: 3em;
+    font-size: 4em;
     margin: 0;
     padding: 0;
-
 }
 
-.container{
+.container {
     margin: 20px;
     padding: 20px;
     background-image: rgba(255, 0, 0, 0.5);
 }
 
-img{
+img {
     width: 200px;
     padding: 20px;
     object-fit: cover;
     margin: 8px;
-    
 }
 
-.lista-animes{
+.lista-animes {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-top: 20%;
 }
 
-.cartao{
+.cartao {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    box-shadow: 0px 0px 5px #fff;
-    
+    box-shadow: 0px 0px 50px rgb(255, 0, 0);
+    border-radius: 0px 20px 0px 20px;
+    color: white;
+    font-size: 24px;
+}
+
+.cartao:hover {
+    animation: bounce 4s;
+}
+
+.title-card {
+    width: 12em;
+    margin-right: 70px;
+    text-align: center;
+}
+
+.botao {
+    margin-bottom: 38px;
+    background-color: transparent;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.botao:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.2);
 }
