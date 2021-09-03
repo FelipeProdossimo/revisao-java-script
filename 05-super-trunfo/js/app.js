@@ -18,12 +18,37 @@ const batman = {
     }
 };
 
-const cartas = [naruto, batman];
+const cartas = [naruto , batman];
+let cartaJogador, cartaMaquina;
 
-function SortearCarta() {
+function SortearCarta(){
     const numeroDeCartas = 2;
-    const numeroCartaJogador = parseInt(Math.random() * numeroDeCartas);
-    const numeroCartaMaquina = parseInt(Math.random() * numeroDeCartas);
-    console.log(numeroCartaJogador, numeroCartaMaquina)
+    let numeroCartaJogador = parseInt(Math.random()*numeroDeCartas);
+    let numeroCartaMaquina = parseInt(Math.random()*numeroDeCartas);
+    while(numeroCartaJogador == numeroCartaMaquina){
+        numeroCartaJogador = parseInt(Math.random()*numeroDeCartas);
+    }
+    cartaJogador = cartas[numeroCartaJogador];
+    cartaMaquina = cartas[numeroCartaMaquina];
+
+    //para mostrar no console antes
+    //console.log(cartaJogador, cartaMaquina)
+    ExibirCartaJogador();
 }
-SortearCarta();
+
+function ExibirCartaJogador(){
+    console.log(cartaJogador);
+    let divCartaJogador = document.querySelector("#carta-jogador");
+    //Forma antiga do JS
+    //divCartaJogador.style.backgroundImage = 'url(' + cartaJogador.imagem + ')';
+    //Forma Nova
+    divCartaJogador.style.backgroundImage = `url(${cartaJogador.imagem})`;
+    document.querySelector(".nome-persongem-jogador").innerText = cartaJogador.nome;
+    cartaJogador.nome;
+
+}
+
+const btnSortear = document.querySelector("#btnSortear");
+btnSortear.onclick = () => {
+    SortearCarta();
+}
