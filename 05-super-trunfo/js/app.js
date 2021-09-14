@@ -82,12 +82,12 @@ function ExibirCartaMaquina(){
 }
 
 
-function PegarAtributosMaquina(){
+function PegarAtributosMaquina(atributosDaCarta){
     let listaDeAtributos = "";
     for(let atributo in atributosDaCarta){
-        listaDeAtributos += `<li>$(atributo) : $(atributosDaCarta)[atributo]</li>`;
+        listaDeAtributos += `<li>${atributo}:${atributosDaCarta[atributo]}</li>`;
     }
-    
+
     return listaDeAtributos;
 }
 
@@ -108,13 +108,24 @@ function Jogar(){
 const btnJogar = document.querySelector("#btnJogar");
 btnJogar.onclick = () => {   
     ExibirCartaMaquina();
-  
+    let atributoEscolhido = document.querySelector("input[name='atributo']:checked").value;
+    let atributoJogador = cartaJogador.atributos[atributoEscolhido];
+    let atributoMaquina = cartaMaquina.atributos[atributoEscolhido];
+
+    if(atributoJogador == atributoMaquina){
+        document.querySelector("#resultado").innerHTML = "<h1>EMPATE</h1>";
+    }else if(atributoJogador > atributoMaquina){
+        document.querySelector("#resultado").innerHTML = "<h1>JOGADOR VENCEU</h1>";
+    }else if(atributoJogador < atributoMaquina){
+        document.querySelector("#resultado").innerHTML = "<h1>MAQUINA VENCEU!</h1>";
+    }
+};
     // O código desejado é apenas isto:
     //document.getElementById("loading").style.display = "none";
     //document.getElementById("conteudo").style.display = "inline";
 
-}//, 4000;
-;
+//}, 4000;
+
 
 // Inserindo evento no botão SORTEAR_CARTA.
 const btnSortear = document.querySelector("#btnSortear");
